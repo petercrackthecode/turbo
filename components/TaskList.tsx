@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import classNames from "classnames"
 
 import { Checkbox } from "@/components/ui/checkbox"
 
@@ -21,6 +22,7 @@ export default function TaskList({ tasks, setTasks }) {
 
 function Task({ task, taskId, setTasks }) {
   const [isTaskDisabled, setIsTaskDisabled] = useState<Boolean>(true)
+  const [isTaskCompleted, setIsTaskCompleted] = useState<Boolean>(false)
 
   return (
     <li
@@ -28,10 +30,18 @@ function Task({ task, taskId, setTasks }) {
       onFocus={() => setIsTaskDisabled(false)}
       onBlur={() => setIsTaskDisabled(true)}
     >
-      <Checkbox className="rounded-full text-lg hover:text-green-500" />
+      <Checkbox
+        className="rounded-full text-lg text-green-500 dark:text-white"
+        onClick={() =>
+          setIsTaskCompleted((prevIsTaskCompleted) => !prevIsTaskCompleted)
+        }
+      />
       <label className="leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
         <input
-          className="p-0 focus:border-0 focus:outline-0 focus:ring-0"
+          className={classNames(
+            "bg-inherit p-0 focus:border-0 focus:outline-0 focus:ring-0",
+            { "line-through": isTaskCompleted }
+          )}
           type="text"
           value={task}
           onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
