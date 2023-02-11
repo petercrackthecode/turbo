@@ -7,14 +7,15 @@ import { Layout } from "@/components/layout"
 
 export default function IndexPage() {
   const [input, setInput] = useState<String>("")
-  const [tasks, setTasks] = useState<String[]>([])
+  const [tasks, setTasks] = useState<{ [id: string]: String }>({})
 
   const handleKeyDown = (
     event: React.KeyboardEvent<HTMLInputElement>
   ): void => {
     if (event.key === "Enter" && input !== "") {
+      const taskId = crypto.randomUUID()
       setInput("")
-      setTasks([...tasks, input])
+      setTasks({ ...tasks, [taskId]: input })
     }
   }
 
@@ -37,7 +38,7 @@ export default function IndexPage() {
           }
           onKeyDown={handleKeyDown}
         />
-        <TaskList tasks={tasks} />
+        <TaskList {...{ tasks, setTasks }} />
       </section>
     </Layout>
   )
