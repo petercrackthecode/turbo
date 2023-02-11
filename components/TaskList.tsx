@@ -21,15 +21,10 @@ export default function TaskList({ tasks, setTasks }) {
 }
 
 function Task({ task, taskId, setTasks }) {
-  const [isTaskDisabled, setIsTaskDisabled] = useState<Boolean>(true)
   const [isTaskCompleted, setIsTaskCompleted] = useState<Boolean>(false)
 
   return (
-    <li
-      className="task flex items-center space-x-2 rounded-lg border-b border-l px-2 py-3"
-      onFocus={() => setIsTaskDisabled(false)}
-      onBlur={() => setIsTaskDisabled(true)}
-    >
+    <li className="task flex items-center space-x-2 rounded-lg border-b border-l px-2 py-3">
       <Checkbox
         className="rounded-full text-lg text-green-500 dark:text-white"
         onClick={() =>
