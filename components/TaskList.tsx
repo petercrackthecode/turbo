@@ -1,5 +1,7 @@
 "use client"
 
+import { useState } from "react"
+
 import { Checkbox } from "@/components/ui/checkbox"
 
 export default function TaskList({ tasks }) {
@@ -13,10 +15,12 @@ export default function TaskList({ tasks }) {
 }
 
 function Task({ task, key }) {
+  const [isTaskDisabled, setIsTaskDisabled] = useState<Boolean>(true)
   return (
     <li
       className="task flex space-x-2 rounded-lg border-b border-l px-2 py-3"
       key={key}
+      onFocus={() => setIsTaskDisabled(false)}
     >
       <Checkbox
         id={key}

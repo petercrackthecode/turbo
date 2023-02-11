@@ -1,15 +1,23 @@
-import { ChangeEvent, useState } from "react"
+import { useState } from "react"
 import Head from "next/head"
 import InputBox from "components/InputBox"
 import TaskList from "components/TaskList"
 
-import { siteConfig } from "@/config/site"
 import { Layout } from "@/components/layout"
-import { buttonVariants } from "@/components/ui/button"
 
 export default function IndexPage() {
   const [input, setInput] = useState<String>("")
   const [tasks, setTasks] = useState<String[]>([])
+
+  const handleKeyDown = (
+    event: React.KeyboardEvent<HTMLInputElement>
+  ): void => {
+    if (event.key === "Enter" && input !== "") {
+      setInput("")
+      setTasks([...tasks, input])
+    }
+  }
+
   return (
     <Layout>
       <Head>
@@ -27,9 +35,7 @@ export default function IndexPage() {
           onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
             setInput(event.target.value)
           }
-          onKeyDown={(event: React.KeyboardEvent<HTMLInputElement>) =>
-            event.key === "Enter" && input !== "" && setTasks([...tasks, input])
-          }
+          onKeyDown={handleKeyDown}
         />
         <TaskList tasks={tasks} />
       </section>
