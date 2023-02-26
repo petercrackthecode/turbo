@@ -28,15 +28,15 @@ function Task({ task, taskId, setTasks }) {
     <Draggable axis="y">
       <li className="task flex items-center space-x-2 rounded-lg border-b border-l px-2 py-3">
         <Checkbox
-          className="rounded-full text-lg text-green-500 dark:text-white"
+          className="grow-0 rounded-full text-lg text-green-500 dark:text-white"
           onClick={() =>
             setIsTaskCompleted((prevIsTaskCompleted) => !prevIsTaskCompleted)
           }
         />
-        <label className="leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+        <label className="grow leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
           <input
             className={classNames(
-              "bg-inherit p-0 focus:border-0 focus:outline-0 focus:ring-0",
+              "w-full bg-inherit p-0 focus:border-0 focus:outline-0 focus:ring-0",
               { "line-through": isTaskCompleted }
             )}
             type="text"
