@@ -1,5 +1,7 @@
 # Turbo
 
+## Description
+
 Turbo is an all-in-one productivity app to help you manage tasks, calendar, and time tracking in one place (imagine Microsoft To do, Google Calendar, and Toggl having a child).
 
 ## To-do
