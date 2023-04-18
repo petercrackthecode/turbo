@@ -4,8 +4,9 @@ Turbo is an all-in-one productivity app to help you manage tasks, calendar, and 
 
 ## To-do
 
-Below are the list of features to build next for Turbo
-[] Connect to a PostgreSQL database.
-[] Save tasks to the PostgreSQL database.
-[] Mark tasks as completed in the PostgreSQL database.
-[] Delete tasks from the PostgreSQL database.
+Below are the list of features to build next for Turbo:
+
+- [ ] Connect to a PostgreSQL database.
+- [ ] Save tasks to the PostgreSQL database.
+- [ ] Mark tasks as completed in the PostgreSQL database.
+- [ ] Delete tasks from the PostgreSQL database.
