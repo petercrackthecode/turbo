@@ -12,9 +12,9 @@ interface SiteConfig {
 }
 
 export const siteConfig: SiteConfig = {
-  name: "Next.js",
+  name: "Turbo",
   description:
-    "Beautifully designed components built with Radix UI and Tailwind CSS.",
+    "An all-in-one productivity app to help you manage tasks, calendar, and time tracking in one place.",
   mainNav: [
     {
       title: "Home",
@@ -22,8 +22,8 @@ export const siteConfig: SiteConfig = {
     },
   ],
   links: {
-    twitter: "https://twitter.com/shadcn",
-    github: "https://github.com/shadcn/ui",
-    docs: "https://ui.shadcn.com",
+    twitter: "https://twitter.com/petercrackstuff",
+    github: "https://github.com/petercrackthecode/turbo",
+    docs: "https://github.com/petercrackthecode/turbo",
   },
 }
